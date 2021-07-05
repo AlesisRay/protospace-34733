@@ -8,7 +8,7 @@
 | occupation | string | NOT NULL |
 | position   | text   | NOT NULL |
 
-###Association
+### Association
 - has_many :prototypes
 - has_many :comments 
 
@@ -20,7 +20,7 @@
 | concept    | text       | NOT NULL      |
 | user       | references |               |
 
-###Association
+### Association
 - belongs_to :user
 - has_many   :comments 
 
@@ -31,6 +31,6 @@
 | user       | references |          |
 | prototypes | references |          |
 
-###Association
+### Association
 - belongs_to :user
 - belongs_to :prototype

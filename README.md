@@ -21,7 +21,7 @@
 | user       | references |               |
 
 ###Association
-- belongs_to :users
+- belongs_to :user
 - has_many   :comments 
 
 ## commentsテーブル
@@ -32,5 +32,5 @@
 | prototypes | references |          |
 
 ###Association
-- belongs_to :users
-- belongs_to :prototypes 
+- belongs_to :user
+- belongs_to :prototype

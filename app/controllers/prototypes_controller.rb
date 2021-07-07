@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  before_action :authenticate_user!, except: [:new, :edit, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
 
   def index
     @prototypes = Prototype.includes(:user)
@@ -7,6 +7,9 @@ class PrototypesController < ApplicationController
 
   def new
     @prototype = Prototype.new
+    unless user_signed_in?
+      redirect_to root_path
+    end
   end
 
   def create
@@ -26,7 +29,7 @@ class PrototypesController < ApplicationController
 
   def edit
     @prototype = Prototype.find(params[:id])
-    unless @prototype.user == current_user
+    unless user_signed_in?
       redirect_to root_path
     end
   end

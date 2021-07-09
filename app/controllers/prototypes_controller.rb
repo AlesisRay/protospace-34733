@@ -29,9 +29,10 @@ class PrototypesController < ApplicationController
 
   def edit
     @prototype = Prototype.find(params[:id])
-    unless user_signed_in?
+    unless user_signed_in? && current_user == @prototype.user
       redirect_to root_path
     end
+      
   end
 
   def update
